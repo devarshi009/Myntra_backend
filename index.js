@@ -13,9 +13,10 @@ app.use(cors());
 
 
 app.use("/users", userRouter);
+app.use("/cart",cartRouter)
 app.use(authenticate);
 
-app.use("/cart",cartRouter)
+
 app.get("/", (req, res) => {
   res.send("Welcome to SignUp");
 });
