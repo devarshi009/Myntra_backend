@@ -3,7 +3,7 @@ const { connection } = require("./db");
 const { authenticate } = require("./middleware/authenticate.middleware");
 const cors = require("cors");
 const { userRouter } = require("./routes/User.route");
-
+const {cartRouter}=require("./routes/Cart.route")
 const app = express();
 
 require("dotenv").config();
@@ -15,6 +15,7 @@ app.use(cors());
 app.use("/users", userRouter);
 app.use(authenticate);
 
+app.use("/cart",cartRouter)
 app.get("/", (req, res) => {
   res.send("Welcome to SignUp");
 });
